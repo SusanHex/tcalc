@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Due Calculator</title>
+</head>
+<body>
+    <script>
+        function calcDiscountDue() {
+            let numberOfSales = document.getElementById("numberOfSales").value*100;
+            let basePi = document.getElementById("basePi").value*100;
+            let netSales = document.getElementById("netSales").value*100;
+            let baseRate = document.getElementById("baseRate").value;
+            console.log(numberOfSales, basePi, netSales, baseRate );
+            const firstPart = (numberOfSales * basePi)/100
+            const secondPart = netSales * (baseRate/100)
+            console.log(firstPart, secondPart)
+            const preCeil = firstPart + secondPart
+            console.log(preCeil)
+            const discountDue = Math.round(preCeil)/100;
+            console.log(discountDue)
+            document.getElementById("discountDue").value = discountDue;
+        }
+    </script>
+    <input type="number" id="numberOfSales" placeholder="Number of Sales">
+    <span>*</span>
+    <input type="number" id="basePi" placeholder="Base P/I">
+    <span>+</span>
+    <input type="number" id="netSales" placeholder="Gross/Net/Both">
+    <span>*</span>
+    <input type="text" id="baseRate" placeholder="Base Rate">
+    <span>=</span>
+    <input type="number" readonly id="discountDue">
+    <button onclick="calcDiscountDue()">Calculate</button>
+    <!-- Calc made by Susan Bloom -->
+</body>
+</html>
